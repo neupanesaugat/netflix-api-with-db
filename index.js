@@ -19,6 +19,14 @@ app.post("/movie/add", async (req, res) => {
   return res.status(200).send("Movie added successfully");
 });
 
+// get all movies
+
+app.get("/movie/list", async (req, res) => {
+  const movies = await Movie.find();
+
+  return res.status(200).send({ message: "success", movieList: movies });
+});
+
 //? network port and server
 
 const PORT = 8000;
